@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUAL MACHINE PRODUCTS LIMITED | Precision CNC Machining & Turned Components</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dual: {
+                            dark: '#09090b',
+                            charcoal: '#18181b',
+                            steel: '#475569',
+                            steelLight: '#64748b',
+                            blue: '#0284c7',
+                            blueHover: '#0369a1',
+                            blueLight: '#e0f2fe',
+                            lightBg: '#f8fafc',
+                            border: '#e2e8f0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'Inter', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .technical-grid-dark {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 font-body antialiased selection:bg-dual-blue selection:text-white">
+
+    <!-- Sticky Header Navigation -->
+    <header id="main-header" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20" id="header-container">
+                <!-- Left: Company Logo / Name -->
+                <div class="flex items-center space-x-3">
+                    <a href="javascript:void(0)" onclick="switchView('home')" class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-dual-charcoal rounded-lg p-0.5 flex items-center justify-center text-white shadow-md">
+                            <i data-lucide="cog" class="w-6 h-6 text-dual-blue"></i>
+                        </div>
+                        <div>
+                            <span class="text-xl font-sans font-extrabold tracking-tight text-dual-dark block leading-none">
+                                DUAL MACHINE <span class="text-dual-blue">PRODUCTS LIMITED</span>
+                            </span>
+                            <span class="text-[10px] font-mono text-dual-steel tracking-widest uppercase mt-0.5 block">
+                                Mississauga, Ontario, Canada • Precision Manufacturing
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Center Navigation -->
+                <nav class="hidden lg:flex items-center space-x-7 text-xs font-sans font-bold uppercase tracking-wider text-slate-700">
+                    <a href="javascript:void(0)" onclick="switchView('home')" class="nav-link hover:text-dual-blue transition">Home</a>
+                    <a href="javascript:void(0)" onclick="switchView('about')" class="nav-link hover:text-dual-blue transition">About</a>
+                    <a href="javascript:void(0)" onclick="switchView('capabilities')" class="nav-link hover:text-dual-blue transition">Capabilities</a>
+                    <a href="javascript:void(0)" onclick="switchView('products')" class="nav-link hover:text-dual-blue transition">Products</a>
+                    <a href="javascript:void(0)" onclick="switchView('industries')" class="nav-link hover:text-dual-blue transition">Industries</a>
+                    <a href="javascript:void(0)" onclick="switchView('quality')" class="nav-link hover:text-dual-blue transition">Quality</a>
+                    <a href="javascript:void(0)" onclick="switchView('resources')" class="nav-link hover:text-dual-blue transition">Resources</a>
+                    <a href="javascript:void(0)" onclick="switchView('contact')" class="nav-link hover:text-dual-blue transition">Contact</a>
+                </nav>
+
+                <!-- Right: CTA & Mobile Menu Button -->
+                <div class="flex items-center space-x-4">
+                    <a href="javascript:void(0)" onclick="scrollToRfq()" class="bg-dual-blue hover:bg-dual-blueHover text-white font-sans font-bold px-5 py-2.5 rounded-lg transition shadow-md shadow-sky-600/20 text-xs uppercase tracking-wider flex items-center gap-2">
+                        <i data-lucide="file-text" class="w-4 h-4"></i> REQUEST A QUOTE
+                    </a>
+                    <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-700 hover:text-dual-blue p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 py-4 space-y-3 font-sans font-bold text-xs uppercase tracking-wider text-slate-700">
+            <a href="javascript:void(0)" onclick="switchView('home'); toggleMobileMenu();" class="block py-2 hover:text-dual-blue">Home</a>
+            <a href="javascript:void(0)" onclick="switchView('about'); toggleMobileMenu();" class="block py-2 hover:text-dual-blue">About</a>
+            <a href="javascript:void(0)" onclick="switchView('capabilities'); toggleMobileMenu();" class="block py-2 hover:text-dual-blue">Capabilities</a>
+            <a href="javascript:void(0)" onclick="switchView('products'); toggleMobileMenu();" class="block py-2 hover:text-dual-blue">Products</a>
+            <a href="javascript:void(0)" onclick="switchView('industries'); toggleMobileMenu();" class="block py-2 hover:text-dual-blue">Industries</a>
+            <a href="javascript:void(0)" onclick="switchView('quality'); toggleMobileMenu();" class="block py-2 hover:text-dual-blue">Quality</a>
+            <a href="javascript:void(0)" onclick="switchView('resources'); toggleMobileMenu();" class="block py-2 hover:text-dual-blue">Resources</a>
+            <a href="javascript:void(0)" onclick="switchView('contact'); toggleMobileMenu();" class="block py-2 hover:text-dual-blue">Contact</a>
+        </div>
+    </header>
+
+    <!-- MAIN VIEW CONTAINER -->
+    <main id="view-container">
+
+        <!-- ================= HOMEPAGE VIEW ================= -->
+        <div id="view-home" class="view-page">
+
+            <!-- HERO SECTION WITH INDUSTRIAL PHOTOGRAPHY BACKGROUND -->
+            <section class="relative py-28 lg:py-40 bg-dual-dark text-white overflow-hidden border-b border-slate-800">
+                <div class="absolute inset-0 z-0">
+                    <img src="assets/hero-bg.webp" alt="Dual Machine Products CNC Machining Plant Facility Floor" class="w-full h-full object-cover object-center scale-105 transition-transform duration-1000">
+                    <div class="absolute inset-0 bg-gradient-to-r from-dual-dark/95 via-dual-dark/85 to-dual-dark/65"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-dual-dark via-transparent to-dual-dark/40"></div>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="max-w-3xl space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700 text-dual-blue text-xs font-mono backdrop-blur-md shadow-lg">
+                            <span class="w-2 h-2 rounded-full bg-dual-blue animate-ping"></span>
+                            <span>Precision Manufacturing • Custom Components • Canadian Manufacturing</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-sans font-extrabold tracking-tight text-white uppercase leading-tight drop-shadow-md">
+                            Precision Machining. <br/>
+                            <span class="text-dual-blue">Engineered to Your Specifications.</span>
+                        </h1>
+
+                        <p class="text-lg text-slate-200 leading-relaxed font-body max-w-2xl drop-shadow">
+                            Custom precision turned parts, screw machine products and assemblies manufactured to meet demanding customer specifications.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <a href="javascript:void(0)" onclick="scrollToRfq()" class="bg-dual-blue hover:bg-dual-blueHover text-white font-sans font-bold px-7 py-4 rounded-lg transition shadow-lg shadow-sky-600/30 text-sm uppercase tracking-wider flex items-center gap-2">
+                                <i data-lucide="file-text" class="w-5 h-5"></i> Request a Quote
+                            </a>
+                            <a href="javascript:void(0)" onclick="switchView('capabilities')" class="bg-slate-900/80 hover:bg-slate-800 text-white font-sans font-bold px-7 py-4 rounded-lg transition border border-slate-700 text-sm uppercase tracking-wider flex items-center gap-2 backdrop-blur-md">
+                                <i data-lucide="layers" class="w-5 h-5 text-dual-blue"></i> Explore Capabilities
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COMPANY INTRODUCTION WITH AUTHENTIC BUILDING PHOTO -->
+            <section class="py-20 bg-white border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-6 space-y-6">
+                            <span class="text-dual-blue font-mono text-xs uppercase tracking-widest font-bold">ESTABLISHED CANADIAN MANUFACTURER</span>
+                            <h2 class="text-3xl sm:text-4xl font-sans font-extrabold text-dual-dark uppercase">Precision Manufacturing — Over 70 Years Experience</h2>
+                            <p class="text-slate-600 leading-relaxed font-body text-base">
+                                Dual Machine Products has more than 70 years of experience in custom machining and the manufacturing of precision turned screw machine parts. Operating from our Mississauga facility, our technical expertise and 100+ machine fleet allow us to serve leading Canadian and U.S. OEM clients.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 text-xs font-mono pt-2">
+                                <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-dual-blue"></i> ISO 9001:2015 Certified
+                                </div>
+                                <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-dual-blue"></i> Controlled Goods Approved
+                                </div>
+                                <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-dual-blue"></i> In-House Tooling Dept
+                                </div>
+                                <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-dual-blue"></i> 100+ Machine Fleet
+                                </div>
+                            </div>
+                            <div class="pt-4">
+                                <a href="javascript:void(0)" onclick="switchView('about')" class="inline-flex items-center gap-2 text-dual-blue font-sans font-bold text-sm uppercase tracking-wider hover:underline">
+                                    Read Full Company Profile <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-6">
+                            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 shadow-xl overflow-hidden group">
+                                <img src="assets/facility-building.jpg" alt="Dual Machine Products Ltd. 189 Watline Ave Mississauga Plant" class="w-full h-80 object-cover rounded-xl shadow-md group-hover:scale-105 transition-transform duration-500">
+                                <div class="mt-3 text-center text-xs font-mono text-slate-600 font-bold">
+                                    Dual Machine Products Ltd. Plant Headquarters — 189 Watline Ave, Mississauga, ON
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CAPABILITIES SECTION -->
+            <section class="py-20 bg-dual-lightBg border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-dual-blue font-mono text-xs tracking-widest uppercase font-bold">MANUFACTURING SERVICES</span>
+                        <h2 class="text-3xl sm:text-4xl font-sans font-extrabold text-dual-dark uppercase mt-1">Precision Machining Capabilities</h2>
+                        <p class="text-slate-600 mt-2 font-body">Advanced turned component production engineered to demanding customer drawings.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Card 1 -->
+                        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-dual-blue transition shadow-sm hover:shadow-md flex flex-col justify-between">
+                            <div>
+                                <div class="w-12 h-12 bg-dual-blueLight text-dual-blue rounded-xl flex items-center justify-center mb-6">
+                                    <i data-lucide="cpu" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-xl font-sans font-extrabold text-dual-dark uppercase mb-2">CNC Machining</h3>
+                                <p class="text-sm text-slate-600 leading-relaxed mb-4">Precision CNC machining for complex and production components manufactured to exact tolerances.</p>
+                            </div>
+                            <a href="javascript:void(0)" onclick="switchView('capabilities')" class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-dual-blue uppercase tracking-wider">
+                                Learn More <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-dual-blue transition shadow-sm hover:shadow-md flex flex-col justify-between">
+                            <div>
+                                <div class="w-12 h-12 bg-dual-blueLight text-dual-blue rounded-xl flex items-center justify-center mb-6">
+                                    <i data-lucide="disc" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-xl font-sans font-extrabold text-dual-dark uppercase mb-2">CNC Turning</h3>
+                                <p class="text-sm text-slate-600 leading-relaxed mb-4">High-accuracy turned components manufactured to customer drawings and specifications.</p>
+                            </div>
+                            <a href="javascript:void(0)" onclick="switchView('capabilities')" class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-dual-blue uppercase tracking-wider">
+                                Learn More <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-dual-blue transition shadow-sm hover:shadow-md flex flex-col justify-between">
+                            <div>
+                                <div class="w-12 h-12 bg-dual-blueLight text-dual-blue rounded-xl flex items-center justify-center mb-6">
+                                    <i data-lucide="cog" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-xl font-sans font-extrabold text-dual-dark uppercase mb-2">Screw Machine Products</h3>
+                                <p class="text-sm text-slate-600 leading-relaxed mb-4">Precision screw-machine parts for high-volume and specialized industrial applications.</p>
+                            </div>
+                            <a href="javascript:void(0)" onclick="switchView('capabilities')" class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-dual-blue uppercase tracking-wider">
+                                Learn More <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-dual-blue transition shadow-sm hover:shadow-md flex flex-col justify-between">
+                            <div>
+                                <div class="w-12 h-12 bg-dual-blueLight text-dual-blue rounded-xl flex items-center justify-center mb-6">
+                                    <i data-lucide="grid" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-xl font-sans font-extrabold text-dual-dark uppercase mb-2">Milling</h3>
+                                <p class="text-sm text-slate-600 leading-relaxed mb-4">Precision milling operations for custom components with intricate internal features.</p>
+                            </div>
+                            <a href="javascript:void(0)" onclick="switchView('capabilities')" class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-dual-blue uppercase tracking-wider">
+                                Learn More <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                        <!-- Card 5 -->
+                        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-dual-blue transition shadow-sm hover:shadow-md flex flex-col justify-between">
+                            <div>
+                                <div class="w-12 h-12 bg-dual-blueLight text-dual-blue rounded-xl flex items-center justify-center mb-6">
+                                    <i data-lucide="layers" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-xl font-sans font-extrabold text-dual-dark uppercase mb-2">Assembly</h3>
+                                <p class="text-sm text-slate-600 leading-relaxed mb-4">Component assembly for customer-specific requirements, sub-assemblies, and packaging.</p>
+                            </div>
+                            <a href="javascript:void(0)" onclick="switchView('capabilities')" class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-dual-blue uppercase tracking-wider">
+                                Learn More <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                        <!-- Card 6 -->
+                        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-dual-blue transition shadow-sm hover:shadow-md flex flex-col justify-between">
+                            <div>
+                                <div class="w-12 h-12 bg-dual-blueLight text-dual-blue rounded-xl flex items-center justify-center mb-6">
+                                    <i data-lucide="wrench" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-xl font-sans font-extrabold text-dual-dark uppercase mb-2">Tooling</h3>
+                                <p class="text-sm text-slate-600 leading-relaxed mb-4">Specialized tooling and production support for unique manufacturing requirements.</p>
+                            </div>
+                            <a href="javascript:void(0)" onclick="switchView('capabilities')" class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-dual-blue uppercase tracking-wider">
+                                Learn More <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PRECISION TURNED PARTS (BUILT TO PRINT) WITH PRODUCT GALLERY -->
+            <section class="py-20 bg-white border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
+                        <div class="lg:col-span-6 space-y-4">
+                            <span class="text-dual-blue font-mono text-xs tracking-widest uppercase font-bold">CUSTOM PRINT MANUFACTURING</span>
+                            <h2 class="text-3xl sm:text-4xl font-sans font-extrabold text-dual-dark uppercase">Precision Turned Parts Built to Your Print</h2>
+                            <p class="text-slate-600 leading-relaxed">
+                                Customers provide drawings, specifications, or component requirements, and Dual Machine Products manufactures components to those exact parameters.
+                            </p>
+                            <div class="pt-2">
+                                <button onclick="openCadModal()" class="bg-dual-blue hover:bg-dual-blueHover text-white font-sans font-bold px-6 py-3 rounded-lg transition text-xs uppercase tracking-wider flex items-center gap-2">
+                                    <i data-lucide="upload-cloud" class="w-4 h-4"></i> Send Your Drawing
+                                </button>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-6">
+                            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 shadow-xl overflow-hidden">
+                                <img src="assets/product-turned-parts.jpg" alt="Precision Stainless Steel Turned Parts & Bushings" class="w-full h-72 object-cover rounded-xl shadow-md">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 hover:border-dual-blue transition text-center">
+                            <i data-lucide="circle-dot" class="w-8 h-8 text-dual-blue mx-auto mb-3"></i>
+                            <h4 class="font-sans font-bold text-dual-dark text-sm uppercase">Bushings</h4>
+                        </div>
+                        <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 hover:border-dual-blue transition text-center">
+                            <i data-lucide="pin" class="w-8 h-8 text-dual-blue mx-auto mb-3"></i>
+                            <h4 class="font-sans font-bold text-dual-dark text-sm uppercase">Pins</h4>
+                        </div>
+                        <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 hover:border-dual-blue transition text-center">
+                            <i data-lucide="component" class="w-8 h-8 text-dual-blue mx-auto mb-3"></i>
+                            <h4 class="font-sans font-bold text-dual-dark text-sm uppercase">Adapters</h4>
+                        </div>
+                        <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 hover:border-dual-blue transition text-center">
+                            <i data-lucide="link" class="w-8 h-8 text-dual-blue mx-auto mb-3"></i>
+                            <h4 class="font-sans font-bold text-dual-dark text-sm uppercase">Connectors</h4>
+                        </div>
+                        <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 hover:border-dual-blue transition text-center">
+                            <i data-lucide="box" class="w-8 h-8 text-dual-blue mx-auto mb-3"></i>
+                            <h4 class="font-sans font-bold text-dual-dark text-sm uppercase">Inserts</h4>
+                        </div>
+                        <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 hover:border-dual-blue transition text-center">
+                            <i data-lucide="wrench" class="w-8 h-8 text-dual-blue mx-auto mb-3"></i>
+                            <h4 class="font-sans font-bold text-dual-dark text-sm uppercase">Fasteners</h4>
+                        </div>
+                        <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 hover:border-dual-blue transition text-center">
+                            <i data-lucide="share-2" class="w-8 h-8 text-dual-blue mx-auto mb-3"></i>
+                            <h4 class="font-sans font-bold text-dual-dark text-sm uppercase">Couplings</h4>
+                        </div>
+                        <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 hover:border-dual-blue transition text-center">
+                            <i data-lucide="git-commit" class="w-8 h-8 text-dual-blue mx-auto mb-3"></i>
+                            <h4 class="font-sans font-bold text-dual-dark text-sm uppercase">Fittings</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MATERIALS WE MACHINE -->
+            <section class="py-20 bg-dual-lightBg border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-dual-blue font-mono text-xs tracking-widest uppercase font-bold">MATERIAL SELECTION</span>
+                        <h2 class="text-3xl sm:text-4xl font-sans font-extrabold text-dual-dark uppercase mt-1">Materials We Machine</h2>
+                        <p class="text-slate-600 mt-2">Versatile machining capability across metals, non-ferrous alloys, and engineering polymers.</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 font-mono text-xs font-bold text-dual-dark text-center shadow-sm">Brass</div>
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 font-mono text-xs font-bold text-dual-dark text-center shadow-sm">Bronze</div>
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 font-mono text-xs font-bold text-dual-dark text-center shadow-sm">Copper</div>
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 font-mono text-xs font-bold text-dual-dark text-center shadow-sm">Steel</div>
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 font-mono text-xs font-bold text-dual-dark text-center shadow-sm">Stainless Steel</div>
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 font-mono text-xs font-bold text-dual-dark text-center shadow-sm">Aluminum</div>
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 font-mono text-xs font-bold text-dual-dark text-center shadow-sm">Nylon</div>
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 font-mono text-xs font-bold text-dual-dark text-center shadow-sm">Plastics</div>
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 font-mono text-xs font-bold text-dual-dark text-center shadow-sm">Inconel</div>
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 font-mono text-xs font-bold text-dual-dark text-center shadow-sm">Monel</div>
+                    </div>
+
+                    <div class="text-center mt-10">
+                        <a href="javascript:void(0)" onclick="scrollToRfq()" class="inline-flex items-center gap-2 bg-dual-dark text-white font-sans font-bold px-7 py-3.5 rounded-lg text-xs uppercase tracking-wider hover:bg-slate-800 transition">
+                            <i data-lucide="message-square" class="w-4 h-4 text-dual-blue"></i> Discuss Your Material Requirements
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PRODUCTS CATEGORY SHOWCASE WITH PRODUCT PHOTOGRAPHY -->
+            <section class="py-20 bg-white border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-dual-blue font-mono text-xs tracking-widest uppercase font-bold">COMPONENT DIRECTORY</span>
+                        <h2 class="text-3xl sm:text-4xl font-sans font-extrabold text-dual-dark uppercase mt-1">Product Categories</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col justify-between overflow-hidden group">
+                            <img src="assets/product-screw-parts.jpg" alt="Screw Machine Products" class="w-full h-40 object-cover rounded-xl mb-4 group-hover:scale-105 transition-transform duration-300">
+                            <div>
+                                <h3 class="font-sans font-extrabold text-dual-dark text-base uppercase mb-1">Screw Machine Products</h3>
+                                <p class="text-xs text-slate-600 mb-4">Precision screw-machine components manufactured to customer requirements.</p>
+                            </div>
+                            <button onclick="switchView('products')" class="text-xs font-mono font-bold text-dual-blue uppercase flex items-center gap-1">View Products <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                        </div>
+                        <div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col justify-between overflow-hidden group">
+                            <img src="assets/product-turned-parts.jpg" alt="Turned Parts" class="w-full h-40 object-cover rounded-xl mb-4 group-hover:scale-105 transition-transform duration-300">
+                            <div>
+                                <h3 class="font-sans font-extrabold text-dual-dark text-base uppercase mb-1">Turned Parts</h3>
+                                <p class="text-xs text-slate-600 mb-4">Custom precision turned components for industrial systems.</p>
+                            </div>
+                            <button onclick="switchView('products')" class="text-xs font-mono font-bold text-dual-blue uppercase flex items-center gap-1">View Products <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                        </div>
+                        <div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col justify-between overflow-hidden group">
+                            <img src="assets/product-adapters.jpg" alt="Connectors & Adapters" class="w-full h-40 object-cover rounded-xl mb-4 group-hover:scale-105 transition-transform duration-300">
+                            <div>
+                                <h3 class="font-sans font-extrabold text-dual-dark text-base uppercase mb-1">Connectors & Adapters</h3>
+                                <p class="text-xs text-slate-600 mb-4">Custom connectors, cable adapters and industrial adapters.</p>
+                            </div>
+                            <button onclick="switchView('products')" class="text-xs font-mono font-bold text-dual-blue uppercase flex items-center gap-1">View Products <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                        </div>
+                        <div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col justify-between overflow-hidden group">
+                            <img src="assets/product-custom-parts.jpg" alt="Custom Machined Components" class="w-full h-40 object-cover rounded-xl mb-4 group-hover:scale-105 transition-transform duration-300">
+                            <div>
+                                <h3 class="font-sans font-extrabold text-dual-dark text-base uppercase mb-1">Custom Components</h3>
+                                <p class="text-xs text-slate-600 mb-4">Customer-specific components manufactured from drawings and specs.</p>
+                            </div>
+                            <button onclick="switchView('products')" class="text-xs font-mono font-bold text-dual-blue uppercase flex items-center gap-1">View Products <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INDUSTRIES SERVED -->
+            <section class="py-20 bg-dual-lightBg border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-dual-blue font-mono text-xs tracking-widest uppercase font-bold">APPLICATIONS</span>
+                        <h2 class="text-3xl sm:text-4xl font-sans font-extrabold text-dual-dark uppercase mt-1">Serving Demanding Industrial Applications</h2>
+                        <p class="text-slate-600 mt-2">Precision machined components supporting OEM and industrial applications across North America.</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                        <div class="p-5 bg-white rounded-xl border border-slate-200 text-center shadow-sm">
+                            <i data-lucide="activity" class="w-6 h-6 text-dual-blue mx-auto mb-2"></i>
+                            <div class="font-sans font-bold text-xs uppercase text-dual-dark">Medical</div>
+                        </div>
+                        <div class="p-5 bg-white rounded-xl border border-slate-200 text-center shadow-sm">
+                            <i data-lucide="droplet" class="w-6 h-6 text-dual-blue mx-auto mb-2"></i>
+                            <div class="font-sans font-bold text-xs uppercase text-dual-dark">Plumbing</div>
+                        </div>
+                        <div class="p-5 bg-white rounded-xl border border-slate-200 text-center shadow-sm">
+                            <i data-lucide="car" class="w-6 h-6 text-dual-blue mx-auto mb-2"></i>
+                            <div class="font-sans font-bold text-xs uppercase text-dual-dark">Automotive</div>
+                        </div>
+                        <div class="p-5 bg-white rounded-xl border border-slate-200 text-center shadow-sm">
+                            <i data-lucide="zap" class="w-6 h-6 text-dual-blue mx-auto mb-2"></i>
+                            <div class="font-sans font-bold text-xs uppercase text-dual-dark">Welding</div>
+                        </div>
+                        <div class="p-5 bg-white rounded-xl border border-slate-200 text-center shadow-sm">
+                            <i data-lucide="shield" class="w-6 h-6 text-dual-blue mx-auto mb-2"></i>
+                            <div class="font-sans font-bold text-xs uppercase text-dual-dark">Military/Defense</div>
+                        </div>
+                        <div class="p-5 bg-white rounded-xl border border-slate-200 text-center shadow-sm">
+                            <i data-lucide="box" class="w-6 h-6 text-dual-blue mx-auto mb-2"></i>
+                            <div class="font-sans font-bold text-xs uppercase text-dual-dark">Machinery</div>
+                        </div>
+                        <div class="p-5 bg-white rounded-xl border border-slate-200 text-center shadow-sm">
+                            <i data-lucide="flame" class="w-6 h-6 text-dual-blue mx-auto mb-2"></i>
+                            <div class="font-sans font-bold text-xs uppercase text-dual-dark">Gas Controls</div>
+                        </div>
+                        <div class="p-5 bg-white rounded-xl border border-slate-200 text-center shadow-sm">
+                            <i data-lucide="sliders" class="w-6 h-6 text-dual-blue mx-auto mb-2"></i>
+                            <div class="font-sans font-bold text-xs uppercase text-dual-dark">Hydraulics</div>
+                        </div>
+                        <div class="p-5 bg-white rounded-xl border border-slate-200 text-center shadow-sm">
+                            <i data-lucide="shield-alert" class="w-6 h-6 text-dual-blue mx-auto mb-2"></i>
+                            <div class="font-sans font-bold text-xs uppercase text-dual-dark">Firefighting</div>
+                        </div>
+                        <div class="p-5 bg-white rounded-xl border border-slate-200 text-center shadow-sm">
+                            <i data-lucide="sun" class="w-6 h-6 text-dual-blue mx-auto mb-2"></i>
+                            <div class="font-sans font-bold text-xs uppercase text-dual-dark">Lighting</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- QUALITY WORKFLOW SECTION -->
+            <section class="py-20 bg-white border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-dual-blue font-mono text-xs tracking-widest uppercase font-bold">QUALITY ASSURANCE</span>
+                        <h2 class="text-3xl sm:text-4xl font-sans font-extrabold text-dual-dark uppercase mt-1">Precision Is Built Into Every Part</h2>
+                        <p class="text-slate-600 mt-2">ISO 9001:2015 Certified & Controlled Goods Approved. Meticulous quality control and repeatability.</p>
+                    </div>
+
+                    <!-- 01 -> 06 Workflow -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 font-mono text-xs">
+                        <div class="p-5 bg-slate-50 border border-slate-200 rounded-xl relative">
+                            <div class="text-dual-blue font-bold text-lg mb-2">01</div>
+                            <div class="font-bold text-dual-dark">Customer Drawing</div>
+                            <div class="text-slate-500 text-[11px] mt-1">Review specifications & tolerances</div>
+                        </div>
+                        <div class="p-5 bg-slate-50 border border-slate-200 rounded-xl relative">
+                            <div class="text-dual-blue font-bold text-lg mb-2">02</div>
+                            <div class="font-bold text-dual-dark">Material Selection</div>
+                            <div class="text-slate-500 text-[11px] mt-1">Certified metals & plastics</div>
+                        </div>
+                        <div class="p-5 bg-slate-50 border border-slate-200 rounded-xl relative">
+                            <div class="text-dual-blue font-bold text-lg mb-2">03</div>
+                            <div class="font-bold text-dual-dark">Tooling & Setup</div>
+                            <div class="text-slate-500 text-[11px] mt-1">In-house toolmaker preparation</div>
+                        </div>
+                        <div class="p-5 bg-slate-50 border border-slate-200 rounded-xl relative">
+                            <div class="text-dual-blue font-bold text-lg mb-2">04</div>
+                            <div class="font-bold text-dual-dark">Precision Machining</div>
+                            <div class="text-slate-500 text-[11px] mt-1">100+ machine high-production fleet</div>
+                        </div>
+                        <div class="p-5 bg-slate-50 border border-slate-200 rounded-xl relative">
+                            <div class="text-dual-blue font-bold text-lg mb-2">05</div>
+                            <div class="font-bold text-dual-dark">Inspection</div>
+                            <div class="text-slate-500 text-[11px] mt-1">ISO 9001 & CGP verification</div>
+                        </div>
+                        <div class="p-5 bg-slate-50 border border-slate-200 rounded-xl relative">
+                            <div class="text-dual-blue font-bold text-lg mb-2">06</div>
+                            <div class="font-bold text-dual-dark">Final Production</div>
+                            <div class="text-slate-500 text-[11px] mt-1">Secondary ops, sub-assembly & shipping</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ENGINEERING / CUSTOM MANUFACTURING CTA -->
+            <section class="py-20 bg-dual-dark text-white border-b border-slate-800 technical-grid-dark relative overflow-hidden">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+                    <span class="text-dual-blue font-mono text-xs uppercase tracking-widest font-bold">CUSTOM ENGINEERING REVIEW</span>
+                    <h2 class="text-3xl sm:text-4xl font-sans font-extrabold uppercase">Have a Difficult Component to Manufacture?</h2>
+                    <p class="text-slate-300 max-w-xl mx-auto text-sm leading-relaxed">
+                        Send us your drawing, specifications or component requirements and our team can review the manufacturing requirements.
+                    </p>
+                    <div class="pt-2">
+                        <button onclick="openCadModal()" class="bg-dual-blue hover:bg-dual-blueHover text-white font-sans font-bold px-8 py-4 rounded-lg transition text-xs uppercase tracking-wider shadow-lg shadow-sky-600/25 inline-flex items-center gap-2">
+                            <i data-lucide="upload-cloud" class="w-5 h-5"></i> Submit Your Drawing
+                        </button>
+                    </div>
+                    <div class="text-xs font-mono text-slate-400">
+                        Accepted Formats: PDF • DWG • DXF • STEP • STP • CAD Files
+                    </div>
+                </div>
+            </section>
+
+            <!-- WHY DUAL MACHINE PRODUCTS -->
+            <section class="py-20 bg-white border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-dual-blue font-mono text-xs tracking-widest uppercase font-bold">TRUST & REPUTATION</span>
+                        <h2 class="text-3xl sm:text-4xl font-sans font-extrabold text-dual-dark uppercase mt-1">Why Choose Dual Machine Products?</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl">
+                            <i data-lucide="dollar-sign" class="w-6 h-6 text-dual-blue mb-3"></i>
+                            <h3 class="font-sans font-bold text-dual-dark text-lg uppercase mb-1">Competitive Pricing</h3>
+                            <p class="text-xs text-slate-600">High-volume production efficiency yielding cost-effective precision turned parts.</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl">
+                            <i data-lucide="clock" class="w-6 h-6 text-dual-blue mb-3"></i>
+                            <h3 class="font-sans font-bold text-dual-dark text-lg uppercase mb-1">On-Time Delivery</h3>
+                            <p class="text-xs text-slate-600">Dependable scheduling and willingness to stock inventory for reliable shipping.</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl">
+                            <i data-lucide="award" class="w-6 h-6 text-dual-blue mb-3"></i>
+                            <h3 class="font-sans font-bold text-dual-dark text-lg uppercase mb-1">ISO 9001:2015 & CGP</h3>
+                            <p class="text-xs text-slate-600">Certified quality management and Controlled Goods Program approval.</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl">
+                            <i data-lucide="cpu" class="w-6 h-6 text-dual-blue mb-3"></i>
+                            <h3 class="font-sans font-bold text-dual-dark text-lg uppercase mb-1">100+ Machine Fleet</h3>
+                            <p class="text-xs text-slate-600">Diversified high-production automatic screw machines and CNC centers.</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl">
+                            <i data-lucide="wrench" class="w-6 h-6 text-dual-blue mb-3"></i>
+                            <h3 class="font-sans font-bold text-dual-dark text-lg uppercase mb-1">In-House Tooling Dept</h3>
+                            <p class="text-xs text-slate-600">Experienced toolmakers producing custom tooling internally for rapid response.</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl">
+                            <i data-lucide="layers" class="w-6 h-6 text-dual-blue mb-3"></i>
+                            <h3 class="font-sans font-bold text-dual-dark text-lg uppercase mb-1">Secondary Ops & Assembly</h3>
+                            <p class="text-xs text-slate-600">Full secondary machining operations, delicate deburring, and complete sub-assembly.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TECHNICAL RESOURCES -->
+            <section class="py-20 bg-dual-lightBg border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-dual-blue font-mono text-xs tracking-widest uppercase font-bold">ENGINEERING RESOURCES</span>
+                        <h2 class="text-3xl sm:text-4xl font-sans font-extrabold text-dual-dark uppercase mt-1">Technical Data & Guidelines</h2>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-mono">
+                        <div class="p-4 bg-white border border-slate-200 rounded-xl flex items-center justify-between shadow-sm">
+                            <span>Product Catalog</span> <i data-lucide="download" class="w-4 h-4 text-dual-blue"></i>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-200 rounded-xl flex items-center justify-between shadow-sm">
+                            <span>Capabilities Overview</span> <i data-lucide="download" class="w-4 h-4 text-dual-blue"></i>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-200 rounded-xl flex items-center justify-between shadow-sm">
+                            <span>Material Specs</span> <i data-lucide="download" class="w-4 h-4 text-dual-blue"></i>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-200 rounded-xl flex items-center justify-between shadow-sm">
+                            <span>Technical Drawings</span> <i data-lucide="download" class="w-4 h-4 text-dual-blue"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MAJOR CONVERSION: REQUEST A QUOTE -->
+            <section id="rfq-section" class="py-24 bg-white border-b border-slate-200">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-12 shadow-xl">
+                        <div class="text-center mb-10">
+                            <span class="text-dual-blue font-mono text-xs tracking-widest uppercase font-bold">PRIMARY INQUIRY</span>
+                            <h2 class="text-3xl sm:text-4xl font-sans font-extrabold text-dual-dark uppercase mt-1">Request a Quote for Your Next Component</h2>
+                            <p class="text-slate-600 mt-2 text-sm">Send us your part drawing, specifications and production requirements.</p>
+                        </div>
+
+                        <form onsubmit="event.preventDefault(); alert('RFQ Submitted! Thank you for contacting Dual Machine Products Limited.');" class="space-y-4 font-mono text-xs">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-slate-700 mb-1 font-bold">First Name *</label>
+                                    <input type="text" required placeholder="John" class="w-full bg-white border border-slate-300 rounded-lg p-3 text-slate-900 focus:outline-none focus:border-dual-blue">
+                                </div>
+                                <div>
+                                    <label class="block text-slate-700 mb-1 font-bold">Last Name *</label>
+                                    <input type="text" required placeholder="Doe" class="w-full bg-white border border-slate-300 rounded-lg p-3 text-slate-900 focus:outline-none focus:border-dual-blue">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-slate-700 mb-1 font-bold">Company *</label>
+                                    <input type="text" required placeholder="Acme Engineering Ltd." class="w-full bg-white border border-slate-300 rounded-lg p-3 text-slate-900 focus:outline-none focus:border-dual-blue">
+                                </div>
+                                <div>
+                                    <label class="block text-slate-700 mb-1 font-bold">Work Email *</label>
+                                    <input type="email" required placeholder="jdoe@acme.com" class="w-full bg-white border border-slate-300 rounded-lg p-3 text-slate-900 focus:outline-none focus:border-dual-blue">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div>
+                                    <label class="block text-slate-700 mb-1 font-bold">Phone</label>
+                                    <input type="tel" placeholder="+1 (555) 000-0000" class="w-full bg-white border border-slate-300 rounded-lg p-3 text-slate-900 focus:outline-none focus:border-dual-blue">
+                                </div>
+                                <div>
+                                    <label class="block text-slate-700 mb-1 font-bold">Country</label>
+                                    <input type="text" placeholder="Canada / USA" class="w-full bg-white border border-slate-300 rounded-lg p-3 text-slate-900 focus:outline-none focus:border-dual-blue">
+                                </div>
+                                <div>
+                                    <label class="block text-slate-700 mb-1 font-bold">Part Number</label>
+                                    <input type="text" placeholder="DMP-1049" class="w-full bg-white border border-slate-300 rounded-lg p-3 text-slate-900 focus:outline-none focus:border-dual-blue">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-slate-700 mb-1 font-bold">Material</label>
+                                    <input type="text" placeholder="e.g. Brass 360, Stainless 303" class="w-full bg-white border border-slate-300 rounded-lg p-3 text-slate-900 focus:outline-none focus:border-dual-blue">
+                                </div>
+                                <div>
+                                    <label class="block text-slate-700 mb-1 font-bold">Estimated Quantity</label>
+                                    <input type="text" placeholder="e.g. 5,000 units" class="w-full bg-white border border-slate-300 rounded-lg p-3 text-slate-900 focus:outline-none focus:border-dual-blue">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-slate-700 mb-1 font-bold">Message & Part Notes</label>
+                                <textarea rows="3" placeholder="Provide part dimensions, tolerances, or special secondary operations..." class="w-full bg-white border border-slate-300 rounded-lg p-3 text-slate-900 focus:outline-none focus:border-dual-blue"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-slate-700 mb-1 font-bold">Upload Drawing / CAD File</label>
+                                <input type="file" class="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-600 text-xs">
+                            </div>
+                            <button type="submit" class="w-full bg-dual-blue hover:bg-dual-blueHover text-white font-sans font-bold py-4 rounded-lg transition uppercase tracking-wider text-sm shadow-md shadow-sky-600/20 flex items-center justify-center gap-2">
+                                <i data-lucide="send" class="w-5 h-5"></i> SUBMIT RFQ
+                            </button>
+                        </form>
+
+                        <div class="mt-6 text-center text-xs text-slate-500 font-mono">
+                            Prefer to talk to our team? <a href="tel:9058900365" class="text-dual-blue font-bold hover:underline">Contact us directly at 905-890-0365</a>.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ================= ABOUT PAGE VIEW (ENHANCED WITH AUTHENTIC COPY & BUILDING PHOTO) ================= -->
+        <div id="view-about" class="view-page hidden py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="text-center max-w-3xl mx-auto">
+                    <span class="text-dual-blue font-mono text-xs uppercase tracking-widest font-bold">AUTHENTIC COMPANY PROFILE</span>
+                    <h1 class="text-4xl font-sans font-extrabold text-dual-dark uppercase mt-1">About Dual Machine Products Limited</h1>
+                    <p class="text-slate-600 mt-2 font-body">Established Canadian precision manufacturing company with 70+ years of custom machining expertise.</p>
+                </div>
+
+                <!-- Building Photo Showcase Hero -->
+                <div class="bg-slate-50 border border-slate-200 rounded-3xl overflow-hidden shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-0">
+                    <div class="lg:col-span-6 p-8 lg:p-12 flex flex-col justify-center space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200 text-dual-dark font-mono text-xs font-bold w-fit">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-dual-blue"></i> Mississauga, Ontario Headquarters
+                        </div>
+                        <h2 class="text-3xl font-sans font-extrabold text-dual-dark uppercase leading-tight">Experienced Custom Machining</h2>
+                        <p class="text-slate-700 text-sm leading-relaxed">
+                            Dual Machine Products has more than 70 years of experience in custom machining and the manufacturing of precision turned screw machine parts. Our experience and technical expertise have allowed us to develop strong relationships with our customers over the years, serving long-term, satisfied clients across Canadian and U.S. markets.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-6">
+                        <img src="assets/facility-building.jpg" alt="Dual Machine Products Ltd. Mississauga Plant Headquarters 189 Watline Ave" class="w-full h-full object-cover min-h-[320px]">
+                    </div>
+                </div>
+
+                <!-- Core Profile Content Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Column 1 -->
+                    <div class="p-8 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-4">
+                        <div class="w-12 h-12 bg-dual-blueLight text-dual-blue rounded-xl flex items-center justify-center">
+                            <i data-lucide="cog" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-sans font-bold text-dual-dark uppercase">We Meet Complicated Production Requirements</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">
+                            At Dual Machine Products we are experts in custom CNC machining as well as in a number of other machining services. Our cutting-edge production equipment, facilities, and quality control programs allow us to create a variety of screw machine parts from simple designs to the toughest, most complicated specifications. We pride ourselves on staying current with industry trends and technology.
+                        </p>
+                    </div>
+
+                    <!-- Column 2 -->
+                    <div class="p-8 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-4">
+                        <div class="w-12 h-12 bg-dual-blueLight text-dual-blue rounded-xl flex items-center justify-center">
+                            <i data-lucide="wrench" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-sans font-bold text-dual-dark uppercase">We Are More Than a Machine Shop</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed">
+                            Dual Machine Products is proud of our highly qualified team and state-of-the-art production facilities. We have <strong>over 100 diversified high-production machines</strong> which allow us to meet a wide variety of customer specifications. Our tooling is produced in-house by our team of experienced tool makers—a decisive advantage over competitors. We offer full secondary operations and assembly to accurately create delicate or complicated assemblies.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- North American Market & Industries -->
+                <div class="p-8 bg-slate-50 border border-slate-200 rounded-3xl space-y-6">
+                    <h3 class="text-2xl font-sans font-bold text-dual-dark uppercase">Custom Machine Parts for Canadian & U.S. Markets</h3>
+                    <p class="text-slate-700 text-sm leading-relaxed">
+                        For more than four decades we have serviced customers throughout Canada and the U.S. across a diverse range of demanding OEM industries:
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 font-mono text-xs">
+                        <div class="p-3 bg-white border border-slate-200 rounded-lg text-slate-800 font-bold">Medical</div>
+                        <div class="p-3 bg-white border border-slate-200 rounded-lg text-slate-800 font-bold">Plumbing</div>
+                        <div class="p-3 bg-white border border-slate-200 rounded-lg text-slate-800 font-bold">Automotive</div>
+                        <div class="p-3 bg-white border border-slate-200 rounded-lg text-slate-800 font-bold">Welding Equipment</div>
+                        <div class="p-3 bg-white border border-slate-200 rounded-lg text-slate-800 font-bold">Military / Defense</div>
+                        <div class="p-3 bg-white border border-slate-200 rounded-lg text-slate-800 font-bold">Machinery & Equip</div>
+                        <div class="p-3 bg-white border border-slate-200 rounded-lg text-slate-800 font-bold">Gas Controls</div>
+                        <div class="p-3 bg-white border border-slate-200 rounded-lg text-slate-800 font-bold">Hydraulic Equipment</div>
+                        <div class="p-3 bg-white border border-slate-200 rounded-lg text-slate-800 font-bold">Firefighting Equip</div>
+                        <div class="p-3 bg-white border border-slate-200 rounded-lg text-slate-800 font-bold">Lighting</div>
+                    </div>
+                </div>
+
+                <!-- Dedication to Quality & Customer Service -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-8 bg-dual-dark text-white rounded-3xl space-y-4 technical-grid-dark">
+                        <span class="text-dual-blue font-mono text-xs uppercase font-bold">QUALITY ACCREDITATION</span>
+                        <h3 class="text-2xl font-sans font-bold uppercase">ISO 9001:2015 & Controlled Goods Approved</h3>
+                        <p class="text-slate-300 text-xs leading-relaxed">
+                            Our dedication to quality control includes ISO 9001:2015 certification and Controlled Goods Program approval. We pay meticulous attention to detail to ensure your product is built precisely to your specifications and quality control requirements.
+                        </p>
+                    </div>
+
+                    <div class="p-8 bg-white border border-slate-200 rounded-3xl space-y-4">
+                        <span class="text-dual-blue font-mono text-xs uppercase font-bold">CUSTOMER SERVICE COMMITMENT</span>
+                        <h3 class="text-2xl font-sans font-bold text-dual-dark uppercase">Reliable Shipping & Inventory Stocking</h3>
+                        <ul class="space-y-2 text-xs text-slate-700 font-body">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-dual-blue"></i> Competitive pricing for high-volume screw machine products</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-dual-blue"></i> On-time delivery and scheduling transparency</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-dual-blue"></i> Willingness to stock inventory for reliable, on-time shipping</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-dual-blue"></i> Technical assistance for present and future precision component needs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- RFQ Callout -->
+                <div class="text-center pt-6">
+                    <a href="javascript:void(0)" onclick="scrollToRfq()" class="bg-dual-blue hover:bg-dual-blueHover text-white font-sans font-bold px-8 py-4 rounded-xl text-xs uppercase tracking-wider shadow-lg shadow-sky-600/25 inline-flex items-center gap-2">
+                        <i data-lucide="file-text" class="w-5 h-5"></i> Request A Free Quote Today
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= CAPABILITIES PAGE VIEW ================= -->
+        <div id="view-capabilities" class="view-page hidden py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="text-center max-w-3xl mx-auto">
+                    <span class="text-dual-blue font-mono text-xs uppercase tracking-widest font-bold">TECHNICAL SERVICES</span>
+                    <h1 class="text-4xl font-sans font-extrabold text-dual-dark uppercase mt-1">Manufacturing Capabilities</h1>
+                    <p class="text-slate-600 mt-2">Comprehensive precision machining breakdown for engineering and procurement teams.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
+                        <h3 class="text-xl font-sans font-bold text-dual-dark uppercase mb-2">CNC Machining & 100+ Machine Fleet</h3>
+                        <p class="text-xs text-slate-600 mb-4">Precision CNC machining for complex components requiring multi-axis control, high-production screw machines, and tight tolerance repeatability.</p>
+                        <button onclick="scrollToRfq()" class="text-xs font-mono font-bold text-dual-blue uppercase">Request Quote For CNC Parts →</button>
+                    </div>
+                    <div class="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
+                        <h3 class="text-xl font-sans font-bold text-dual-dark uppercase mb-2">CNC Turning & In-House Tooling</h3>
+                        <p class="text-xs text-slate-600 mb-4">High-accuracy turned components manufactured with custom in-house tooling made by experienced toolmakers for rapid response.</p>
+                        <button onclick="scrollToRfq()" class="text-xs font-mono font-bold text-dual-blue uppercase">Request Quote For Turned Components →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PRODUCTS DIRECTORY VIEW ================= -->
+        <div id="view-products" class="view-page hidden py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                <div class="text-center max-w-3xl mx-auto">
+                    <span class="text-dual-blue font-mono text-xs uppercase tracking-widest font-bold">DIRECTORY</span>
+                    <h1 class="text-4xl font-sans font-extrabold text-dual-dark uppercase mt-1">Product Categories & Directory</h1>
+                </div>
+
+                <!-- Product Directory Filter Bar -->
+                <div class="flex flex-wrap gap-2 justify-center font-mono text-xs">
+                    <button class="filter-btn active bg-dual-blue text-white px-3.5 py-1.5 rounded-lg" onclick="filterProducts('all', this)">All Categories</button>
+                    <button class="filter-btn bg-slate-100 text-slate-700 px-3.5 py-1.5 rounded-lg hover:bg-slate-200" onclick="filterProducts('screw-machine', this)">Screw Machine Products</button>
+                    <button class="filter-btn bg-slate-100 text-slate-700 px-3.5 py-1.5 rounded-lg hover:bg-slate-200" onclick="filterProducts('turned-parts', this)">Turned Parts</button>
+                    <button class="filter-btn bg-slate-100 text-slate-700 px-3.5 py-1.5 rounded-lg hover:bg-slate-200" onclick="filterProducts('connectors', this)">Connectors & Adapters</button>
+                    <button class="filter-btn bg-slate-100 text-slate-700 px-3.5 py-1.5 rounded-lg hover:bg-slate-200" onclick="filterProducts('custom', this)">Custom Components</button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="product-grid">
+                    <div class="product-item p-6 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col justify-between" data-cat="screw-machine">
+                        <div>
+                            <img src="assets/product-screw-parts.jpg" alt="Precision Screw Machine Parts" class="w-full h-48 object-cover rounded-xl mb-4 shadow-sm">
+                            <h3 class="font-sans font-bold text-dual-dark uppercase text-lg mb-2">Precision Screw Machine Parts</h3>
+                            <p class="text-xs text-slate-600 mb-4">High-volume brass, steel, and alloy turned parts for industrial machinery.</p>
+                        </div>
+                        <button onclick="openProductModal('Precision Screw Machine Parts', 'assets/product-screw-parts.jpg')" class="bg-dual-blue text-white text-xs font-mono font-bold px-4 py-2.5 rounded-lg uppercase">View Specs & Quote</button>
+                    </div>
+
+                    <div class="product-item p-6 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col justify-between" data-cat="turned-parts">
+                        <div>
+                            <img src="assets/product-turned-parts.jpg" alt="Custom Turned Components" class="w-full h-48 object-cover rounded-xl mb-4 shadow-sm">
+                            <h3 class="font-sans font-bold text-dual-dark uppercase text-lg mb-2">Custom Turned Components</h3>
+                            <p class="text-xs text-slate-600 mb-4">Precision bushings, pins, and sleeves manufactured to customer drawings.</p>
+                        </div>
+                        <button onclick="openProductModal('Custom Turned Components', 'assets/product-turned-parts.jpg')" class="bg-dual-blue text-white text-xs font-mono font-bold px-4 py-2.5 rounded-lg uppercase">View Specs & Quote</button>
+                    </div>
+
+                    <div class="product-item p-6 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col justify-between" data-cat="connectors">
+                        <div>
+                            <img src="assets/product-adapters.jpg" alt="Cable Adapters & Connectors" class="w-full h-48 object-cover rounded-xl mb-4 shadow-sm">
+                            <h3 class="font-sans font-bold text-dual-dark uppercase text-lg mb-2">Connectors, Adapters & Fittings</h3>
+                            <p class="text-xs text-slate-600 mb-4">Electrical, welding, and fluid control fittings and threaded adapters.</p>
+                        </div>
+                        <button onclick="openProductModal('Connectors, Adapters & Fittings', 'assets/product-adapters.jpg')" class="bg-dual-blue text-white text-xs font-mono font-bold px-4 py-2.5 rounded-lg uppercase">View Specs & Quote</button>
+                    </div>
+
+                    <div class="product-item p-6 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col justify-between" data-cat="custom">
+                        <div>
+                            <img src="assets/product-custom-parts.jpg" alt="Custom Machined Engineering Parts" class="w-full h-48 object-cover rounded-xl mb-4 shadow-sm">
+                            <h3 class="font-sans font-bold text-dual-dark uppercase text-lg mb-2">Custom Machined Engineering Parts</h3>
+                            <p class="text-xs text-slate-600 mb-4">Complex multi-axis turned and milled components strictly to print.</p>
+                        </div>
+                        <button onclick="openProductModal('Custom Machined Engineering Parts', 'assets/product-custom-parts.jpg')" class="bg-dual-blue text-white text-xs font-mono font-bold px-4 py-2.5 rounded-lg uppercase">View Specs & Quote</button>
+                    </div>
+
+                    <div class="product-item p-6 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col justify-between" data-cat="turned-parts">
+                        <div>
+                            <img src="assets/product-parts-1.jpg" alt="High-Precision Machine Assemblies" class="w-full h-48 object-cover rounded-xl mb-4 shadow-sm">
+                            <h3 class="font-sans font-bold text-dual-dark uppercase text-lg mb-2">Precision Machine Assemblies</h3>
+                            <p class="text-xs text-slate-600 mb-4">Precision turned assemblies, gears, shafts, and internal housing components.</p>
+                        </div>
+                        <button onclick="openProductModal('Precision Machine Assemblies', 'assets/product-parts-1.jpg')" class="bg-dual-blue text-white text-xs font-mono font-bold px-4 py-2.5 rounded-lg uppercase">View Specs & Quote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= INDUSTRIES PAGE VIEW ================= -->
+        <div id="view-industries" class="view-page hidden py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="text-center max-w-3xl mx-auto">
+                    <span class="text-dual-blue font-mono text-xs uppercase tracking-widest font-bold">SECTORS</span>
+                    <h1 class="text-4xl font-sans font-extrabold text-dual-dark uppercase mt-1">Industries & Market Applications</h1>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+                    <div class="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
+                        <h3 class="font-sans font-bold text-dual-dark uppercase text-lg mb-2">Automotive & OEM Supply</h3>
+                        <p class="text-slate-600 text-xs">High-volume precision turned components supporting tier 1 automotive supply chains.</p>
+                    </div>
+                    <div class="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
+                        <h3 class="font-sans font-bold text-dual-dark uppercase text-lg mb-2">Medical & Healthcare Equipment</h3>
+                        <p class="text-slate-600 text-xs">Precision stainless steel and brass fittings for medical device assemblies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= QUALITY PAGE VIEW ================= -->
+        <div id="view-quality" class="view-page hidden py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="text-center max-w-3xl mx-auto">
+                    <span class="text-dual-blue font-mono text-xs uppercase tracking-widest font-bold">QUALITY ASSURANCE</span>
+                    <h1 class="text-4xl font-sans font-extrabold text-dual-dark uppercase mt-1">Quality Control & Inspection</h1>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 space-y-4">
+                    <h3 class="font-sans font-bold text-dual-dark uppercase text-xl">ISO 9001:2015 & Controlled Goods Approved</h3>
+                    <p class="text-slate-700 text-sm">Dual Machine Products Limited maintains strict dimensional controls throughout the production process from material selection through final inspection.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= RESOURCES PAGE VIEW ================= -->
+        <div id="view-resources" class="view-page hidden py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="text-center max-w-3xl mx-auto">
+                    <span class="text-dual-blue font-mono text-xs uppercase tracking-widest font-bold">DOCUMENTATION</span>
+                    <h1 class="text-4xl font-sans font-extrabold text-dual-dark uppercase mt-1">Technical Resources</h1>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl flex justify-between items-center">
+                        <span>Product Specifications Guidelines</span>
+                        <button onclick="alert('Downloading placeholder document...')" class="text-dual-blue font-bold">Download PDF</button>
+                    </div>
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl flex justify-between items-center">
+                        <span>RFQ Drawing Guidelines</span>
+                        <button onclick="alert('Downloading placeholder document...')" class="text-dual-blue font-bold">Download PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= CONTACT PAGE VIEW WITH BUILDING PHOTO ================= -->
+        <div id="view-contact" class="view-page hidden py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="text-center max-w-3xl mx-auto">
+                    <span class="text-dual-blue font-mono text-xs uppercase tracking-widest font-bold">DIRECT CONTACT</span>
+                    <h1 class="text-4xl font-sans font-extrabold text-dual-dark uppercase mt-1">Contact Dual Machine Products Limited</h1>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <div class="lg:col-span-5 space-y-6 font-mono text-xs">
+                        <div class="p-6 bg-slate-50 border border-slate-200 rounded-2xl space-y-4">
+                            <h3 class="font-sans font-bold text-dual-dark uppercase text-lg">Plant Location</h3>
+                            <div class="rounded-xl overflow-hidden border border-slate-200 mb-4">
+                                <img src="assets/facility-building.jpg" alt="Dual Machine Products Ltd. Building 189 Watline Ave" class="w-full h-44 object-cover">
+                            </div>
+                            <p class="text-slate-700">
+                                <strong>Dual Machine Products Limited</strong><br/>
+                                189 Watline Avenue<br/>
+                                Mississauga, Ontario<br/>
+                                Canada L4Z 1P3
+                            </p>
+                            <p class="text-slate-700">
+                                <strong>Phone:</strong> 905-890-0365<br/>
+                                <strong>Fax:</strong> 905-890-8518
+                            </p>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7 bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8">
+                        <h3 class="font-sans font-bold text-dual-dark uppercase text-lg mb-4">Send Us A Message</h3>
+                        <form onsubmit="event.preventDefault(); alert('Message sent to Dual Machine Products Limited.');" class="space-y-4 font-mono text-xs">
+                            <div>
+                                <label class="block text-slate-700 mb-1">Your Name *</label>
+                                <input type="text" required class="w-full bg-white border border-slate-300 rounded-lg p-3">
+                            </div>
+                            <div>
+                                <label class="block text-slate-700 mb-1">Email Address *</label>
+                                <input type="email" required class="w-full bg-white border border-slate-300 rounded-lg p-3">
+                            </div>
+                            <div>
+                                <label class="block text-slate-700 mb-1">Message</label>
+                                <textarea rows="4" class="w-full bg-white border border-slate-300 rounded-lg p-3"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-dual-blue text-white font-sans font-bold py-3.5 rounded-lg uppercase tracking-wider">Send Inquiry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- PREMIUM INDUSTRIAL FOOTER -->
+    <footer class="bg-dual-dark text-slate-400 py-16 border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+            <!-- Col 1 -->
+            <div class="space-y-4">
+                <span class="text-white font-sans font-extrabold text-lg block">DUAL MACHINE <span class="text-dual-blue">PRODUCTS LIMITED</span></span>
+                <p class="text-slate-400 leading-relaxed font-body">
+                    Precision machining and custom manufacturing of screw-machine products, turned parts and assemblies since 1950s.
+                </p>
+                <div class="font-mono text-[11px] text-slate-500">Mississauga, Ontario, Canada</div>
+            </div>
+
+            <!-- Col 2: Company -->
+            <div>
+                <h4 class="text-white font-sans font-bold uppercase tracking-wider mb-4">Company</h4>
+                <ul class="space-y-2.5 font-mono text-[11px]">
+                    <li><a href="javascript:void(0)" onclick="switchView('about')" class="hover:text-dual-blue transition">About Us</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchView('capabilities')" class="hover:text-dual-blue transition">Capabilities</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchView('quality')" class="hover:text-dual-blue transition">Quality</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchView('resources')" class="hover:text-dual-blue transition">Resources</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchView('contact')" class="hover:text-dual-blue transition">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Capabilities -->
+            <div>
+                <h4 class="text-white font-sans font-bold uppercase tracking-wider mb-4">Capabilities</h4>
+                <ul class="space-y-2.5 font-mono text-[11px]">
+                    <li><a href="javascript:void(0)" onclick="switchView('capabilities')" class="hover:text-dual-blue transition">CNC Machining</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchView('capabilities')" class="hover:text-dual-blue transition">CNC Turning</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchView('capabilities')" class="hover:text-dual-blue transition">Milling</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchView('capabilities')" class="hover:text-dual-blue transition">Screw Machine Products</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchView('capabilities')" class="hover:text-dual-blue transition">Assembly</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Contact -->
+            <div>
+                <h4 class="text-white font-sans font-bold uppercase tracking-wider mb-4">Contact</h4>
+                <div class="space-y-2 font-mono text-[11px]">
+                    <p>189 Watline Avenue, Mississauga, ON</p>
+                    <p>Phone: 905-890-0365</p>
+                    <p>Fax: 905-890-8518</p>
+                    <div class="pt-2">
+                        <button onclick="scrollToRfq()" class="bg-dual-blue hover:bg-dual-blueHover text-white font-sans font-bold px-4 py-2 rounded-lg text-xs uppercase tracking-wider">
+                            Request a Quote
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-[11px] font-mono text-slate-500">
+            <p>© 2026 Dual Machine Products Limited. All rights reserved.</p>
+            <div class="flex space-x-6 mt-2 md:mt-0">
+                <a href="#" class="hover:text-slate-400">Privacy Policy</a>
+                <a href="#" class="hover:text-slate-400">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CAD UPLOAD MODAL -->
+    <div id="cad-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 md:p-8 max-w-lg w-full shadow-2xl relative">
+            <button onclick="closeCadModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-dual-blueLight rounded-2xl flex items-center justify-center text-dual-blue mx-auto mb-3">
+                    <i data-lucide="upload-cloud" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-sans font-extrabold text-dual-dark uppercase">Submit Engineering Drawing</h3>
+                <p class="text-xs text-slate-500 mt-1 font-mono">Supports PDF, DWG, DXF, STEP, STP, and CAD Files</p>
+            </div>
+
+            <div class="border-2 border-dashed border-slate-300 hover:border-dual-blue rounded-2xl p-8 text-center cursor-pointer transition bg-slate-50 mb-4" onclick="document.getElementById('cad-input').click()">
+                <i data-lucide="file-plus" class="w-10 h-10 text-dual-blue mx-auto mb-2"></i>
+                <span class="text-xs font-mono text-slate-700 block font-semibold">Click to attach part drawing file</span>
+                <input type="file" id="cad-input" class="hidden" onchange="alert('Drawing attached: ' + this.files[0].name)">
+            </div>
+
+            <button onclick="closeCadModal(); alert('Drawing received. Our engineering team will review requirements.')" class="w-full bg-dual-blue hover:bg-dual-blueHover text-white font-sans font-bold py-3.5 rounded-xl uppercase tracking-wider text-xs shadow-md">
+                Submit Drawing For Engineering Review
+            </button>
+        </div>
+    </div>
+
+    <!-- PRODUCT DETAIL VIEW MODAL WITH DYNAMIC IMAGE SUPPORT -->
+    <div id="product-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 md:p-8 max-w-2xl w-full shadow-2xl relative text-slate-800 space-y-6">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="text-xs font-mono text-slate-500">
+                Breadcrumbs: Home / Products / <span id="modal-product-name" class="text-dual-blue font-bold">Product</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden shadow-md">
+                    <img id="modal-product-img" src="assets/product-screw-parts.jpg" alt="Component Photography" class="w-full h-56 object-cover">
+                </div>
+                <div class="space-y-3">
+                    <h3 id="modal-product-title" class="text-xl font-sans font-extrabold text-dual-dark uppercase">Product Name</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed font-body">Custom precision component manufactured strictly to customer engineering drawings and specifications.</p>
+                    <div class="text-xs font-mono text-slate-700 space-y-1">
+                        <div><strong>Materials:</strong> Brass, Stainless Steel, Steel, Copper, Aluminum</div>
+                        <div><strong>Applications:</strong> Automotive, Medical, Plumbing, Industrial OEM</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200">
+                <button onclick="closeProductModal(); scrollToRfq();" class="w-full bg-dual-blue hover:bg-dual-blueHover text-white font-sans font-bold py-3.5 rounded-xl uppercase tracking-wider text-xs shadow-md">
+                    REQUEST A QUOTE FOR THIS PRODUCT
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS ROUTER & INTERACTION CONTROLS -->
+    <script>
+        lucide.createIcons();
+
+        function switchView(viewId) {
+            document.querySelectorAll('.view-page').forEach(el => el.classList.add('hidden'));
+            const targetView = document.getElementById('view-' + viewId);
+            if (targetView) {
+                targetView.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function scrollToRfq() {
+            switchView('home');
+            setTimeout(() => {
+                const el = document.getElementById('rfq-section');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function openCadModal() {
+            document.getElementById('cad-modal').classList.remove('hidden');
+        }
+        function closeCadModal() {
+            document.getElementById('cad-modal').classList.add('hidden');
+        }
+
+        function openProductModal(name, imgPath) {
+            document.getElementById('modal-product-name').innerText = name;
+            document.getElementById('modal-product-title').innerText = name;
+            if (imgPath) {
+                document.getElementById('modal-product-img').src = imgPath;
+            }
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        function filterProducts(cat, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('bg-dual-blue', 'text-white');
+                b.classList.add('bg-slate-100', 'text-slate-700');
+            });
+            btn.classList.add('bg-dual-blue', 'text-white');
+            btn.classList.remove('bg-slate-100', 'text-slate-700');
+
+            document.querySelectorAll('.product-item').forEach(item => {
+                if (cat === 'all' || item.getAttribute('data-cat') === cat) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
